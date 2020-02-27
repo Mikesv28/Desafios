@@ -51,9 +51,9 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
             Click(clicarEmCasoDeTeste);
         }
 
-        public string LocalizarCasoDeTeste()
+        public bool LocalizarCasoDeTeste()
         {
-            return GetText(localizarCasoDeTeste);
+           return localizarCasoDeTeste;
         }
         #endregion
     }
