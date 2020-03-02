@@ -18,6 +18,9 @@ namespace CSharpMikeVieira
         #region Pages and Flows Objects
         MainPage mainPage;
         LoginFlows loginFlows;
+        DashboardPage dashboardPage;
+        ProjectsPage projectsPage;
+        ProjectPage projectPage;
         #endregion
         protected OpenQA.Selenium.Support.UI.WebDriverWait wait { get; private set; }
 
@@ -37,6 +40,10 @@ namespace CSharpMikeVieira
             #region Instancia de Objetos
             mainPage = new MainPage();
             loginFlows = new LoginFlows();
+            dashboardPage = new DashboardPage();
+            projectsPage = new ProjectsPage();
+            projectPage = new ProjectPage();
+
             #endregion
 
             #region Parameters
@@ -46,15 +53,15 @@ namespace CSharpMikeVieira
 
             loginFlows.EfetuarLogin(usuario, senha);
 
-            mainPage.ClicarEmGerenciarProjetos(); 
+            mainPage.ClicarEmGerenciarProjetos();
 
-            WaitForElement(By.XPath("/html/body/div/nav/div[2]/div/ul/a[2]/li/div/i"));
-            mainPage.ClicarEmProjetos();
+            dashboardPage.AguardaProjetos();
+            dashboardPage.ClicarEmProjetos();
 
-            WaitForElement(By.Id("btn_open_project_425"));
-            mainPage.VisualizarProjeto();
+            projectsPage.AguardaProjeto();
+            projectsPage.VisualizarProjeto();
 
-            mainPage.ClicarEmCasoDeTeste();
+            projectPage.ClicarEmCasoDeTeste();
 
             //IWebElement Item = DriverFactory.INSTANCE.FindElement(By.XPath(".//td[@class='sorting_1' and contains(text(),'Validar o cadastro de releases')]"));
             //Verificar com a larissa como resolver o assert.
@@ -62,9 +69,7 @@ namespace CSharpMikeVieira
 
             IWebElement Item = DriverFactory.INSTANCE.FindElement(By.XPath(".//td[@class='sorting_1' and contains(text(),'Validar o cadastro de releases')]"));
 
-            Assert.IsTrue(Item.Displayed);
-
-            
+            Assert.IsTrue(Item.Displayed);           
         }
     }
 }
