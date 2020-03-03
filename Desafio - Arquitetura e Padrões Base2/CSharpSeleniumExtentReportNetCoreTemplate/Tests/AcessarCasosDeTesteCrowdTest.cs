@@ -22,18 +22,7 @@ namespace CSharpMikeVieira
         ProjectsPage projectsPage;
         ProjectPage projectPage;
         #endregion
-        protected OpenQA.Selenium.Support.UI.WebDriverWait wait { get; private set; }
-
-        protected IWebElement WaitForElement(By locator)
-        {
-
-            wait = new OpenQA.Selenium.Support.UI.WebDriverWait(DriverFactory.INSTANCE, TimeSpan.FromSeconds(Convert.ToInt32(BuilderJson.ReturnParameterAppSettings("DEFAULT_TIMEOUT_IN_SECONDS"))));
-            wait.Until(ExpectedConditions.ElementExists(locator));
-            IWebElement element = DriverFactory.INSTANCE.FindElement(locator);
-
-            return element;
-        }
-
+        
         [Test]
         public void AcessasCasosDeTestes()
         {
@@ -46,30 +35,15 @@ namespace CSharpMikeVieira
 
             #endregion
 
-            #region Parameters
-            string usuario = "mike.vieira@base2.com.br";
-            string senha = "fresno2019";
-            #endregion
-
-            loginFlows.EfetuarLogin(usuario, senha);
+            loginFlows.EfetuarLogin();
 
             mainPage.ClicarEmGerenciarProjetos();
-
-            dashboardPage.AguardaProjetos();
+                        
             dashboardPage.ClicarEmProjetos();
-
-            projectsPage.AguardaProjeto();
+                        
             projectsPage.VisualizarProjeto();
 
-            projectPage.ClicarEmCasoDeTeste();
-
-            //IWebElement Item = DriverFactory.INSTANCE.FindElement(By.XPath(".//td[@class='sorting_1' and contains(text(),'Validar o cadastro de releases')]"));
-            //Verificar com a larissa como resolver o assert.
-            //string Item = mainPage.LocalizarCasoDeTeste();
-
-            //IWebElement Item = DriverFactory.INSTANCE.FindElement(By.XPath(".//td[@class='sorting_1' and contains(text(),'Validar o cadastro de releases')]"));
-
-            //Assert.IsTrue(Item.Displayed);      
+            projectPage.ClicarEmCasoDeTeste();                
 
             projectPage.VerificaCasoDeTeste();
         }

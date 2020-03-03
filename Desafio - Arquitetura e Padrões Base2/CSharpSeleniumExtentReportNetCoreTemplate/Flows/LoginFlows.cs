@@ -1,4 +1,5 @@
-﻿using CSharpSeleniumExtentReportNetCoreTemplate.Pages;
+﻿using CSharpSeleniumExtentReportNetCoreTemplate.Helpers;
+using CSharpSeleniumExtentReportNetCoreTemplate.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,13 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Flows
         }
         #endregion
 
-        public void EfetuarLogin(string username, string password)
+        public void EfetuarLogin()
         {
+            #region Parameters
+            string username = BuilderJson.ReturnParameterAppSettings("CT_USER");
+            string password = BuilderJson.ReturnParameterAppSettings("CT_PASSWORD");
+            #endregion
+
             loginPage.PreencherUsuario(username);
             loginPage.PreencherSenha(password);
             loginPage.ClicarEmLogin();
