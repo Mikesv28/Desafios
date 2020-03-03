@@ -15,6 +15,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
 
         #endregion
 
+        #region Actions
         public void ClicarEmCasoDeTeste()
         {
             Click(clicarEmCasoDeTeste);
@@ -27,6 +28,6 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
 
             Assert.IsTrue(Item.Displayed);
         }
-
+        #endregion
     }
 }

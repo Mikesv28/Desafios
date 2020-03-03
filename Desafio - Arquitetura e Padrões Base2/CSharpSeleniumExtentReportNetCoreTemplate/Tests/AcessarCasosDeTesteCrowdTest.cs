@@ -35,6 +35,8 @@ namespace CSharpMikeVieira
 
             #endregion
 
+            #region Tests
+
             loginFlows.EfetuarLogin();
 
             mainPage.ClicarEmGerenciarProjetos();
@@ -46,6 +48,8 @@ namespace CSharpMikeVieira
             projectPage.ClicarEmCasoDeTeste();                
 
             projectPage.VerificaCasoDeTeste();
+
+            #endregion
         }
     }
 }

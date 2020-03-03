@@ -13,14 +13,11 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
 
         #endregion
 
+        #region Actions
         public void VisualizarProjeto()
         {
             Click(visualizarProjeto);
         }
-
-        public void AguardaProjeto()
-        {
-            WaitForElement(By.Id("btn_open_project_425"));
-        }
+        #endregion
     }
 }

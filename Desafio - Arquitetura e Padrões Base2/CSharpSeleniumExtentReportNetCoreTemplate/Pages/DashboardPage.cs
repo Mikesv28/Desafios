@@ -20,14 +20,11 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
 
         #endregion
 
+        #region Actions
         public void ClicarEmProjetos()
         {
             Click(clicarEmProjetos);
         }
-
-        public void AguardaProjetos()
-        {
-            WaitForElement(By.XPath("/html/body/div/nav/div[2]/div/ul/a[2]/li/div/i"));
-        }
+        #endregion
     }
 }

@@ -28,7 +28,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
             SendKeys(passwordField, senha);
         }
 
-        public void ClicarEmLogin()
+        public void ClicarEmLogar()
         {
             Click(loginButton);
         }

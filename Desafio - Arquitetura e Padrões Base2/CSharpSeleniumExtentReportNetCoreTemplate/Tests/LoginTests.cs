@@ -33,7 +33,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
 
             loginPage.PreencherUsuario(usuario);
             loginPage.PreencherSenha(senha);
-            loginPage.ClicarEmLogin();
+            loginPage.ClicarEmLogar();
 
             Assert.AreEqual(usuario, mainPage.RetornaUsernameDasInformacoesDeLogin());
         }
