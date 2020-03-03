@@ -1,4 +1,6 @@
 ﻿using CSharpSeleniumExtentReportNetCoreTemplate.Bases;
+using CSharpSeleniumExtentReportNetCoreTemplate.Helpers;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -17,6 +19,13 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
         {
             Click(clicarEmCasoDeTeste);
 
+        }
+
+        public void VerificaCasoDeTeste()
+        {
+            IWebElement Item = DriverFactory.INSTANCE.FindElement(By.XPath(".//td[@class='sorting_1' and contains(text(),'Validar o cadastro de releases')]"));
+
+            Assert.IsTrue(Item.Displayed);
         }
 
     }

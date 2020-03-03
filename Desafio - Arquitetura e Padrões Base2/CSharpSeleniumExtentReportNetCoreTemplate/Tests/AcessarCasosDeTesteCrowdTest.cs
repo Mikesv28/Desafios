@@ -35,7 +35,7 @@ namespace CSharpMikeVieira
         }
 
         [Test]
-        public void CrowdTest()
+        public void AcessasCasosDeTestes()
         {
             #region Instancia de Objetos
             mainPage = new MainPage();
@@ -67,9 +67,11 @@ namespace CSharpMikeVieira
             //Verificar com a larissa como resolver o assert.
             //string Item = mainPage.LocalizarCasoDeTeste();
 
-            IWebElement Item = DriverFactory.INSTANCE.FindElement(By.XPath(".//td[@class='sorting_1' and contains(text(),'Validar o cadastro de releases')]"));
+            //IWebElement Item = DriverFactory.INSTANCE.FindElement(By.XPath(".//td[@class='sorting_1' and contains(text(),'Validar o cadastro de releases')]"));
 
-            Assert.IsTrue(Item.Displayed);           
+            //Assert.IsTrue(Item.Displayed);      
+
+            projectPage.VerificaCasoDeTeste();
         }
     }
 }
