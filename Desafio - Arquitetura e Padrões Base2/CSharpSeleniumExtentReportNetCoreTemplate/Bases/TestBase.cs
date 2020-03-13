@@ -19,7 +19,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Bases
         public void TearDown()
         {
             ExtentReportHelpers.AddTestResult();
-            DriverFactory.QuitInstace();
+            //DriverFactory.QuitInstace();
         }
 
         [OneTimeSetUp]

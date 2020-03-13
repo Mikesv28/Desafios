@@ -11,7 +11,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
     public class ProjectPage : PageBase
     {
         #region Mapping
-        By clicarEmCasoDeTeste = By.XPath("/html/body/div/div/div[1]/div[2]/ul/li[3]/a/span");
+        By clicarEmCasoDeTeste = By.XPath("//a[@href='#project-test-cases']");
 
         #endregion
 

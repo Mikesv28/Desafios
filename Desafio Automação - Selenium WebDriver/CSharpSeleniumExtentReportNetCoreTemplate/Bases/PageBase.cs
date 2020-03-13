@@ -306,9 +306,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Bases
                 }
             }
         }
-
-
-
+               
         #endregion
     }
 }
