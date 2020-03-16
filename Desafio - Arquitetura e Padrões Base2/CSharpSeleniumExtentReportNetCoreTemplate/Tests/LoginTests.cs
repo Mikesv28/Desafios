@@ -1,5 +1,6 @@
 ﻿using CSharpSeleniumExtentReportNetCoreTemplate.Bases;
 using CSharpSeleniumExtentReportNetCoreTemplate.DataBaseSteps;
+using CSharpSeleniumExtentReportNetCoreTemplate.Flows;
 using CSharpSeleniumExtentReportNetCoreTemplate.Helpers;
 using CSharpSeleniumExtentReportNetCoreTemplate.Pages;
 using NUnit.Framework;
@@ -15,7 +16,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
 
         #region Pages and Flows Objects
         LoginPage loginPage;
-        MainPage mainPage;
+        LoginFlows loginFlows;
         #endregion
 
         protected OpenQA.Selenium.Support.UI.WebDriverWait wait { get; private set; }
@@ -24,18 +25,10 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
         public void RealizarLoginComSucesso()
         {
             loginPage = new LoginPage();
-            mainPage = new MainPage();
+            loginFlows = new LoginFlows();
 
-            #region Parameters
-            string usuario = "templateautomacao";
-            string senha = "123456";
-            #endregion
-
-            loginPage.PreencherUsuario(usuario);
-            loginPage.PreencherSenha(senha);
-            loginPage.ClicarEmLogar();
-
-            Assert.AreEqual(usuario, mainPage.RetornaUsernameDasInformacoesDeLogin());
+            loginFlows.EfetuarLogin();
+            
         }
     }
 }

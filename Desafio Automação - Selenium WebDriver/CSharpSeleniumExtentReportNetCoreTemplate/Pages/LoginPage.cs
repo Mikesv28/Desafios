@@ -11,10 +11,10 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
     public class LoginPage : PageBase
     {
         #region Mapping
-        By usernameField = By.Name("user[email]");
-        By passwordField = By.Name("user[password]");
-        By loginButton = By.Name("commit");
-        By mensagemErroTextArea = By.XPath("/html/body/div[2]/font");
+        By usernameField = By.Id("username");
+        By passwordField = By.Id("password");
+        By loginButton = By.XPath("//*[@id='login-form']/fieldset/input[2]");
+        By accessButton = By.XPath("//*[@id='login-form']/fieldset/input[3]");
         #endregion
 
         #region Actions
@@ -28,15 +28,18 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
             SendKeys(passwordField, senha);
         }
 
-        public void ClicarEmLogar()
+        public void ClicarEmEntrar()
         {
             Click(loginButton);
         }
 
-        public string RetornaMensagemDeErro()
+        public void ClicarEmAcessar()
         {
-            return GetText(mensagemErroTextArea);
+            Click(accessButton);
         }
+
+        
+
         #endregion
     }
 }

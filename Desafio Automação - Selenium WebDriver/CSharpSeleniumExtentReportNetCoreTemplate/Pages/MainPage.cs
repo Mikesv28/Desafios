@@ -15,7 +15,6 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
         #region Mapping
         By usernameLoginInfoTextArea = By.XPath("//td[@class='login-info-left']/span[@class='italic']");
         By reportIssueLink = By.XPath("//a[@href='/bug_report_page.php']");
-        By gerenciarProjetos = By.XPath("/html/body/div[1]/div/div/div[2]/div[1]/div[3]/a");
 
         #endregion
 
@@ -29,12 +28,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
         {
             Click(reportIssueLink);
         }
-
-        public void ClicarEmGerenciarProjetos()
-        {
-            Click(gerenciarProjetos);
-           
-        }
+              
 
         #endregion
     }

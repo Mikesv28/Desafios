@@ -33,6 +33,9 @@ namespace CSharpMikeVieira
 
             loginFlows.EfetuarLogin();
 
+            //mainPage.ClicarEmGerenciarProjetos();
+
+            //dashboardPage.ClicarEmProjetos();
             #endregion
         }
     }
