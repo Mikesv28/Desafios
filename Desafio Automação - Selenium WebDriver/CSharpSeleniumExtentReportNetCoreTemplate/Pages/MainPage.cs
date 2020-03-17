@@ -23,6 +23,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
         By clickMonitored = By.XPath("//*[@id='monitored']/div[1]/h4/a");
         By clickProfile = By.ClassName("user-info");
         By clickMyAccount = By.XPath("//*[@id='navbar-container']/div[2]/ul/li[3]/ul/li[1]/a");
+        By clickViewTasks = By.XPath("//*[@id='sidebar']/ul/li[2]/a/span"); 
 
         #endregion
 
@@ -74,6 +75,11 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
         public void ClicarEmMinhaConta()
         {
             Click(clickMyAccount);
+        }
+
+        public void ClicarEmVerTarefas()
+        {
+            Click(clickViewTasks);
         }
         #endregion
     }

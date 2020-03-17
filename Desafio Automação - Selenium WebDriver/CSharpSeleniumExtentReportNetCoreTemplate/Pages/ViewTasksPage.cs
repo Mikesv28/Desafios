@@ -13,21 +13,32 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
     public class ViewTasksPage : PageBase
     {
         #region Mapping
-        By infoHome = By.XPath("//*[@id='trial_banner']/strong");
+        By clickTask = By.XPath("//*[@id='buglist']/tbody/tr[1]/td[4]/a");
+        By selectTask = By.XPath("//*[@id='buglist']/tbody/tr[1]/td[1]/div/label/span");
+        By clickOk = By.XPath("//*[@id='bug_action']/div/div[2]/div[2]/div[2]/div[1]/input");
+        By selectAction = By.Name("action");
 
         #endregion
 
         #region Actions
-        public string RetornaInfoHome()
+        public void SelecionarAcao(string acao)
         {
-            return GetText(infoHome);
+            ComboBoxSelectByVisibleText(selectAction, acao);
+        }
+        public void ClicarEmUmaTarefa()
+        {
+            Click(clickTask);
         }
 
-        public void ClicarEmReportIssue()
+        public void SelecionarTarefa()
         {
-            Click(reportIssueLink);
+            Click(selectTask);
         }
 
+        public void ClicarEmOk()
+        {
+            Click(clickOk);
+        }
         #endregion
     }
 }

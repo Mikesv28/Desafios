@@ -1,0 +1,6 @@
+GET - Busca os dados
+POST - Adicionar novos dados
+PUT - Atualiza dados existentes
+PATCH - atualize alguns campos de dados existentes
+DELETE - excluir dados existentes
+
