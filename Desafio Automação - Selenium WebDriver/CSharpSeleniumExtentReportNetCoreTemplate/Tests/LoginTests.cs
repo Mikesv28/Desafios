@@ -16,7 +16,6 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
 
         #region Pages and Flows Objects
         LoginPage loginPage;
-        MainPage mainPage;
         LoginFlows loginFlows;
         #endregion
 
@@ -26,14 +25,10 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
         public void LoginComSucesso()
         {
             loginPage = new LoginPage();
-            mainPage = new MainPage();
             loginFlows = new LoginFlows();
-
-
-            loginFlows.EfetuarLogin();
-
             
-
+            loginFlows.EfetuarLogin();
+                      
         }
 
         [Test]
@@ -41,12 +36,34 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
         public void LoginComFalha()
         {
             loginPage = new LoginPage();
-            mainPage = new MainPage();
             loginFlows = new LoginFlows();
-
-
+            
             loginFlows.EfetuarLoginComFalha();
 
+        }
+
+        [Test]
+        public void PerdeuSuaSenha()
+        {
+            #region Parameters
+            string username = BuilderJson.ReturnParameterAppSettings("MT_USER");
+            #endregion
+
+            loginPage = new LoginPage();
+            loginFlows = new LoginFlows();
+
+            loginPage.PreencherUsuario(username);
+            loginPage.ClicarEmEntrar();
+            loginPage.ClicarEmPerdeuSenha();
+            loginPage.PreencherEmailAjuste(username);
+            loginPage.ClicarEmEnviar();
+
+            string urlRetorno;
+            urlRetorno = DriverFactory.INSTANCE.Url;
+
+            string urlEsperada = "https://basedois.mantishub.io/lost_pwd.php";
+
+            Assert.AreEqual(urlEsperada, urlRetorno);                                 
         }
     }
 }
