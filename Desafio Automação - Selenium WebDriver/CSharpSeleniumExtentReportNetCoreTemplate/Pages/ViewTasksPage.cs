@@ -17,10 +17,16 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
         By selectTask = By.XPath("//*[@id='buglist']/tbody/tr[1]/td[1]/div/label/span");
         By clickOk = By.XPath("//*[@id='bug_action']/div/div[2]/div[2]/div[2]/div[1]/input");
         By selectAction = By.Name("action");
+        By clickSave = By.XPath("//*[@id='filter']/div[2]/div/div/div/div/a[2]");
 
         #endregion
 
         #region Actions
+        public void ClicarSalvar()
+        {
+            Click(clickSave);
+        }
+
         public void SelecionarAcao(string acao)
         {
             ComboBoxSelectByVisibleText(selectAction, acao);

@@ -25,6 +25,10 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
         DeleteTasksPage deleteTasksPage;
         TaskResolutionPage taskResolutionPage;
         TaskPriorityPage taskPriorityPage;
+        TaskSeverityPage taskSeverityPage;
+        TaskStatusPage taskStatusPage;
+        TaskCategoryPage taskCategoryPage;
+        SaveCurrentFilterPage saveCurrentFilterPage;
         #endregion
 
         protected OpenQA.Selenium.Support.UI.WebDriverWait wait { get; private set; }
@@ -190,6 +194,113 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
             taskPriorityPage.SelecionarPrioridadeDaTarefa(prioridade);
             taskPriorityPage.ClicarEmAtualizarPrioridade();
 
+            string urlObtido = DriverFactory.INSTANCE.Url;
+            string urlEsperado = "https://basedois.mantishub.io/view_all_bug_page.php";
+
+            Assert.AreEqual(urlEsperado, urlObtido);
+
+        }
+
+        [Test]
+        public void AltualizarGravidadeDaTarefa()
+        {
+            loginFlows = new LoginFlows();
+            mainPage = new MainPage();
+            viewTasksPage = new ViewTasksPage();
+            taskSeverityPage = new TaskSeverityPage();
+
+            string acao = "Atualizar Gravidade"; 
+            string gravidade = "travamento";
+
+            loginFlows.EfetuarLogin();
+            mainPage.ClicarEmVerTarefas();
+            viewTasksPage.SelecionarTarefa();
+            viewTasksPage.SelecionarAcao(acao);
+            viewTasksPage.ClicarEmOk();
+            taskSeverityPage.SelecionarGravidadeDaTarefa(gravidade);
+            taskSeverityPage.ClicarEmAtualizarGravidade();
+
+            string urlObtido = DriverFactory.INSTANCE.Url;
+            string urlEsperado = "https://basedois.mantishub.io/view_all_bug_page.php";
+
+            Assert.AreEqual(urlEsperado, urlObtido);
+
+        }
+
+        [Test]
+        public void AltualizarStatusDaTarefa()
+        {
+            loginFlows = new LoginFlows();
+            mainPage = new MainPage();
+            viewTasksPage = new ViewTasksPage();
+            taskStatusPage = new TaskStatusPage();
+
+            string acao = "Atualizar Status";
+            string status = "retorno";
+
+            loginFlows.EfetuarLogin();
+            mainPage.ClicarEmVerTarefas();
+            viewTasksPage.SelecionarTarefa();
+            viewTasksPage.SelecionarAcao(acao);
+            viewTasksPage.ClicarEmOk();
+            taskStatusPage.SelecionarStatusDaTarefa(status);
+            taskStatusPage.ClicarEmAtualizarStatus();
+
+            string urlObtido = DriverFactory.INSTANCE.Url;
+            string urlEsperado = "https://basedois.mantishub.io/view_all_bug_page.php";
+
+            Assert.AreEqual(urlEsperado, urlObtido);
+
+        }
+
+        [Test]
+        public void AltualizarCategoriaDaTarefa()
+        {
+            loginFlows = new LoginFlows();
+            mainPage = new MainPage();
+            viewTasksPage = new ViewTasksPage();
+            taskCategoryPage = new TaskCategoryPage();
+
+            string acao = "Atualizar Categoria";
+            string categoria = "[Todos os Projetos] Solo";
+
+            loginFlows.EfetuarLogin();
+            mainPage.ClicarEmVerTarefas();
+            viewTasksPage.SelecionarTarefa();
+            viewTasksPage.SelecionarAcao(acao);
+            viewTasksPage.ClicarEmOk();
+            taskCategoryPage.SelecionarCategoriaDaTarefa(categoria);
+            taskCategoryPage.ClicarEmAtualizarCategoria();
+
+            string urlObtido = DriverFactory.INSTANCE.Url;
+            string urlEsperado = "https://basedois.mantishub.io/view_all_bug_page.php";
+
+            Assert.AreEqual(urlEsperado, urlObtido);
+
+        }
+
+        [Test]
+        public void SalvarFiltroAtual()
+        {
+            loginFlows = new LoginFlows();
+            mainPage = new MainPage();
+            viewTasksPage = new ViewTasksPage();
+            saveCurrentFilterPage = new SaveCurrentFilterPage();
+
+            #region Informations
+
+            string nomeFiltro = "Todas as tarefas";
+
+            #endregion
+
+            loginFlows.EfetuarLogin();
+            mainPage.ClicarEmVerTarefas();
+            viewTasksPage.ClicarSalvar();
+            saveCurrentFilterPage.PreencherNomeDoFiltro(nomeFiltro);
+            saveCurrentFilterPage.ClicarEmTodosOsProjetos();
+            saveCurrentFilterPage.ClicarEmSalvarFiltroAtual();
+
+            
             string urlObtido = DriverFactory.INSTANCE.Url;
             string urlEsperado = "https://basedois.mantishub.io/view_all_bug_page.php";
 
