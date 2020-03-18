@@ -308,5 +308,55 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
 
         }
 
+        [Test]
+        public void FiltrarPorCategoria()
+        {
+            loginFlows = new LoginFlows();
+            mainPage = new MainPage();
+            viewTasksPage = new ViewTasksPage();
+
+            #region Informations
+
+            string filtroCategoria = "General";
+
+            #endregion
+
+            loginFlows.EfetuarLogin();
+            mainPage.ClicarEmVerTarefas();
+            viewTasksPage.ClicarEmCategoria();
+            viewTasksPage.SelecionarCategoria(filtroCategoria);
+            viewTasksPage.ClicarEmAplicarFiltro();
+
+            string verifica = "[TestProject]  General";
+
+            Assert.AreEqual(verifica, viewTasksPage.RetornaInfoCategoria());
+
+        }
+
+        [Test]
+        public void FiltrarPorGravidade()
+        {
+            loginFlows = new LoginFlows();
+            mainPage = new MainPage();
+            viewTasksPage = new ViewTasksPage();
+
+            #region Informations
+
+            string filtroGravidade = "obstáculo";
+
+            #endregion
+
+            loginFlows.EfetuarLogin();
+            mainPage.ClicarEmVerTarefas();
+            viewTasksPage.ClicarEmGravidade();
+            viewTasksPage.SelecionarGravidade(filtroGravidade);
+            viewTasksPage.ClicarEmAplicarFiltro();
+
+            string verifica = "obstáculo";
+
+            Assert.AreEqual(verifica, viewTasksPage.RetornaInfoGravidade());
+
+        }
+
     }
 }

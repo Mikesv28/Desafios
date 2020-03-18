@@ -18,10 +18,45 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
         By clickOk = By.XPath("//*[@id='bug_action']/div/div[2]/div[2]/div[2]/div[1]/input");
         By selectAction = By.Name("action");
         By clickSave = By.XPath("//*[@id='filter']/div[2]/div/div/div/div/a[2]");
+        By clickCategory = By.Id("show_category_filter");
+        By selectCategory = By.XPath("//*[@id='show_category_filter_target']/select");
+        By clickApplyFilter = By.XPath("//*[@id='filters_form_open']/div[2]/div/div/input[2]");
+        By infoCategory = By.XPath("//*[@id='buglist']/tbody/tr/td[7]/div");
+        By infoGravity = By.XPath("//*[@id='buglist']/tbody/tr[1]/td[8]/span");
+        By clickGravity = By.Id("show_severity_filter");
+        By selectGravity = By.XPath("//*[@id='show_severity_filter_target']/select");
 
         #endregion
 
         #region Actions
+        public void ClicarEmGravidade()
+        {
+            Click(clickGravity);
+        }
+        public void SelecionarGravidade(string gravidade)
+        {
+            ComboBoxSelectByVisibleText(selectGravity, gravidade);
+        }
+        public string RetornaInfoCategoria()
+        {
+            return GetText(infoCategory);
+        }
+        public string RetornaInfoGravidade()
+        {
+            return GetText(infoGravity);
+        }
+        public void ClicarEmAplicarFiltro()
+        {
+            Click(clickApplyFilter);
+        }
+        public void SelecionarCategoria(string categoria)
+        {
+            ComboBoxSelectByVisibleText(selectCategory, categoria);
+        }
+        public void ClicarEmCategoria()
+        {
+            Click(clickCategory);
+        }
         public void ClicarSalvar()
         {
             Click(clickSave);
