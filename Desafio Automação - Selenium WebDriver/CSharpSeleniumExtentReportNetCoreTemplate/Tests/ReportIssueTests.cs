@@ -20,25 +20,26 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
         [AutoInstance] BugReportPage bugReportPage;
         #endregion
 
-        //[Test]
-        //public void CadastrarNovaIssueComSucessoInformandoSomenteCamposObrigatorios()
-        //{
-        //    #region Parameters
-        //    string usuario = "templateautomacao";
-        //    string senha = "123456";
-        //    string categoria = "[All Projects] Desafio jMeter";
-        //   // string resumo = "Resumo teste automático " + GeneralHelpers.ReturnStringWithRandomCharacters(5);
-        //    string descricao = "Descrição teste automático";
-        //    //string caminhoArquivo = GeneralHelpers.ReturnProjectPath() + "Resources/Files/anexo_ocorrencia.jpg";
-        //    #endregion
+        [Test]
+        public void CadastrarNovaIssueComSucessoInformandoSomenteCamposObrigatorios()
+        {
+            //    #region Parameters
+            //    string usuario = "templateautomacao";
+            //    string senha = "123456";
+            //    string categoria = "[All Projects] Desafio jMeter";
+            //   // string resumo = "Resumo teste automático " + GeneralHelpers.ReturnStringWithRandomCharacters(5);
+            //    string descricao = "Descrição teste automático";
+            //    //string caminhoArquivo = GeneralHelpers.ReturnProjectPath() + "Resources/Files/anexo_ocorrencia.jpg";
+            //    #endregion
 
-        //    loginFlows.EfetuarLogin(usuario, senha);
-        //    mainPage.ClicarEmReportIssue();
-        //    bugReportPage.SelecionarCategoria(categoria);
-        //    bugReportPage.PreencherResumo(resumo);
-        //    bugReportPage.PreencherDescricao(descricao);
-        //    bugReportPage.InserirAnexo(caminhoArquivo);
-        //    bugReportPage.ClicarEmSubmitReport();
-        //}
+            //    loginFlows.EfetuarLogin(usuario, senha);
+            //    mainPage.ClicarEmReportIssue();
+            //    bugReportPage.SelecionarCategoria(categoria);
+            //    bugReportPage.PreencherResumo(resumo);
+            //    bugReportPage.PreencherDescricao(descricao);
+            //    bugReportPage.InserirAnexo(caminhoArquivo);
+            //    bugReportPage.ClicarEmSubmitReport();
+            //}
+        }
     }
 }

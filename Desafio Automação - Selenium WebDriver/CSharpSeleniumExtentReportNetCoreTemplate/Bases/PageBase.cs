@@ -93,7 +93,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Bases
             WaitForElement(locator).SendKeys(text);
             ExtentReportHelpers.AddTestInfo(3, "PARAMETER: " + text);
         }
-
+               
         protected void SendKeysWithoutWaitVisible(By locator, string text)
         {
             wait.Until(ExpectedConditions.ElementExists(locator));

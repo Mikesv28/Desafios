@@ -23,11 +23,20 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
         By clickMonitored = By.XPath("//*[@id='monitored']/div[1]/h4/a");
         By clickProfile = By.ClassName("user-info");
         By clickMyAccount = By.XPath("//*[@id='navbar-container']/div[2]/ul/li[3]/ul/li[1]/a");
-        By clickViewTasks = By.XPath("//*[@id='sidebar']/ul/li[2]/a/span"); 
-
+        By clickViewTasks = By.XPath("//*[@id='sidebar']/ul/li[2]/a/span");
+        By clickCreateTask = By.XPath("//*[@id='sidebar']/ul/li[3]/a/span");
+        By clickManege = By.XPath("//*[@id='sidebar']/ul/li[7]/a/span");
         #endregion
 
         #region Actions
+        public void ClicarEmGerenciar()
+        {
+            Click(clickManege);
+        }
+        public void ClicarEmCriarTarefa()
+        {
+            Click(clickCreateTask);
+        }
         public string RetornaInfoHome()
         {
             return GetText(infoHome);

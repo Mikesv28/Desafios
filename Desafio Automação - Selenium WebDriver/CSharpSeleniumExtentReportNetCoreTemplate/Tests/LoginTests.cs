@@ -17,6 +17,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
         #region Pages and Flows Objects
         LoginPage loginPage;
         LoginFlows loginFlows;
+        PageBase pageBase;
         #endregion
 
         protected OpenQA.Selenium.Support.UI.WebDriverWait wait { get; private set; }
@@ -51,6 +52,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
 
             loginPage = new LoginPage();
             loginFlows = new LoginFlows();
+            pageBase = new PageBase();
 
             loginPage.PreencherUsuario(username);
             loginPage.ClicarEmEntrar();
@@ -58,9 +60,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Tests
             loginPage.PreencherEmailAjuste(username);
             loginPage.ClicarEmEnviar();
 
-            string urlRetorno;
-            urlRetorno = DriverFactory.INSTANCE.Url;
-
+            string urlRetorno = pageBase.GetURL();
             string urlEsperada = "https://basedois.mantishub.io/lost_pwd.php";
 
             Assert.AreEqual(urlEsperada, urlRetorno);                                 

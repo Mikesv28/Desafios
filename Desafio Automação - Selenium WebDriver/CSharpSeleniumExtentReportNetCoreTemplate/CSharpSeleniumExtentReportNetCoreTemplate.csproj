@@ -41,6 +41,14 @@
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
   </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Resources\ArquivoTeste.txt">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ArquivoTeste.txt</DependentUpon>
+    </Compile>
+  </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Resources\Resource1.resx">

@@ -19,6 +19,7 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
         By clickLostPassword = By.XPath("//*[@id='login-form']/fieldset/a");
         By emailRecovery = By.Id("email-field");
         By clickSend = By.XPath("//*[@id='lost-password-form']/fieldset/input");
+        By incorrectAccess = By.XPath("//*[@id='login-div']/div[4]/p");
         #endregion
 
         #region Actions
@@ -34,6 +35,10 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Pages
         public string RetornaInfoLogin()
         {
             return GetText(infoLogin);
+        }
+        public string RetornaAcessoIncorreto()
+        {
+            return GetText(incorrectAccess);
         }
         public void PreencherUsuario(string usuario)
         {

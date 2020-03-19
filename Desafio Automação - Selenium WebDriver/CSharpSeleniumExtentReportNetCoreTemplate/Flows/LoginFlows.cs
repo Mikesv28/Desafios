@@ -54,7 +54,9 @@ namespace CSharpSeleniumExtentReportNetCoreTemplate.Flows
             loginPage.PreencherSenha(password);
             loginPage.ClicarEmAcessar();
 
-            //Assert.AreNotEqual(username, mainPage.RetornaUsernameDasInformacoesDeLogin());
+            string verifica = "Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos.";
+
+            Assert.AreEqual(verifica, loginPage.RetornaAcessoIncorreto());
         }
     }
 }
